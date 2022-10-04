@@ -77,7 +77,11 @@ namespace Hilo.Game
 
             _nextCard.RenderCard();
 
-            _score += (_guess == "h") != ((_currentCard.value * 4 + _currentCard.suit) > (_nextCard.value * 4 + _nextCard.suit)) ? 100: -75;
+            bool isGreater = ((_currentCard.value * 4 + _currentCard.suit) < (_nextCard.value * 4 + _nextCard.suit));
+
+            // This hurt my brain
+            // If either you guessed h and it was higher, or you guessed l and it was lower, add 100 points. Otherwise, subtract 75
+            _score += ((_guess == "h") == isGreater) ? 100: -75;
 
             _currentCard = _nextCard;
             _nextCard = _deck.DrawCard();
