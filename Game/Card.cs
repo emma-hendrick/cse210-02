@@ -35,8 +35,6 @@ namespace Hilo.Game
 
         public string[] ReturnRenderedCard()
         {
-            Console.WriteLine(suit);
-            Console.WriteLine(value);
 
             // This hurt my brain
             string number = ((value < 10) ? value.ToString(): (value == 10) ? "J": (value == 11) ? "Q": (value == 12) ? "K": "A");
