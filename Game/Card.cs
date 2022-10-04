@@ -42,13 +42,14 @@ namespace Hilo.Game
             string number = ((value < 10) ? value.ToString(): (value == 10) ? "J": (value == 11) ? "Q": (value == 12) ? "K": "A");
 
             return new string[]{
-                $"---------",
-                $"|{suits[suit]}{number}     |",
-                $"|       |",
-                $"|       |",
-                $"|       |",
-                $"|       |",
-                $"---------"
+                $"-----------",
+                $"| {suits[suit]}{number}      |",
+                $"|         |",
+                $"|         |",
+                $"|         |",
+                $"|         |",
+                $"|         |",
+                $"-----------"
                 };
         }
     }   
