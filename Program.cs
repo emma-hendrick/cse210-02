@@ -1,10 +1,22 @@
-﻿namespace Hilo
+﻿using Hilo.Game;
+
+
+namespace Hilo
 {
-    internal class Program
+    /// <summary>
+    /// The program's entry point.
+    /// </summary>
+    class Program
     {
-        private static void Main(string[] args)
+        /// <summary>
+        /// Starts the program using the given arguments.
+        /// </summary>
+        /// <param name="args">The given arguments.</param>
+        static int Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Director director = new Director();
+            director.StartGame();
+            return 0;
         }
     }
 }
