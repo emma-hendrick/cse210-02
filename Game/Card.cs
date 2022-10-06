@@ -39,15 +39,24 @@ namespace Hilo.Game
             // This hurt my brain
             string number = ((value < 10) ? value.ToString(): (value == 10) ? "J": (value == 11) ? "Q": (value == 12) ? "K": "A");
 
+            // Reset color
+            string resetCol = "\u001b[0m";
+            string blackOnWhite = "\u001b[30;47m";
+            string redOnWhite = "\u001b[31;47m";
+            string suitColor = (suit <= 1) ? blackOnWhite: redOnWhite;
+
+            // Suit and number
+            string suitAndNumber = suitColor + suits[suit] + blackOnWhite + number;
+
             return new string[]{
-                $"-----------",
-                $"| {suits[suit]}{number}      |",
-                $"|         |",
-                $"|         |",
-                $"|         |",
-                $"|         |",
-                $"|         |",
-                $"-----------"
+                $"{blackOnWhite}-----------{resetCol}",
+                $"{blackOnWhite}| {suitAndNumber}      |{resetCol}",
+                $"{blackOnWhite}|         |{resetCol}",
+                $"{blackOnWhite}|         |{resetCol}",
+                $"{blackOnWhite}|         |{resetCol}",
+                $"{blackOnWhite}|         |{resetCol}",
+                $"{blackOnWhite}|         |{resetCol}",
+                $"{blackOnWhite}-----------{resetCol}"
                 };
         }
     }   

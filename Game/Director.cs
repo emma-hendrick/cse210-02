@@ -34,6 +34,9 @@ namespace Hilo.Game
         /// </summary>
         public void StartGame()
         {
+
+            Console.Clear();
+
             while (_isPlaying)
             {
                 GetInputs();
