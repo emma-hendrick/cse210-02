@@ -143,6 +143,8 @@ namespace Hilo.Game
                 break;
                 
                 default:
+                    // Lets also use the format for a 1 for the royalty
+                    cardString[5] = cardString[5].Remove(16,1).Insert(16, suitString);
                 break;
             }
 
