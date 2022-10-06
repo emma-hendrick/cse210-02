@@ -15,7 +15,8 @@ namespace Hilo.Game
         Card _currentCard;
         Card _nextCard;
         bool _isPlaying = true;
-        int _score = 300;
+        int _totalScore = 300;
+        int _score = 0;
         string _guess;
 
         /// <summary>
@@ -35,8 +36,6 @@ namespace Hilo.Game
         public void StartGame()
         {
 
-            Console.Clear();
-
             while (_isPlaying)
             {
                 GetInputs();
@@ -53,18 +52,19 @@ namespace Hilo.Game
 
             Console.Write("Play Again? [y/n] ");
             string rollDice = Console.ReadLine() ?? "y";
-            _isPlaying = (rollDice == "y");
+            _isPlaying = (rollDice != "n");
 
             if (!_isPlaying)
             {
                 return;
             }
 
-            Console.WriteLine();
+            Console.Clear();
             _currentCard.RenderCard();
 
             Console.Write("Higher or lower? [h/l] ");
             _guess = Console.ReadLine() ?? "h";
+            Console.WriteLine();
 
         }
 
@@ -84,7 +84,8 @@ namespace Hilo.Game
 
             // This hurt my brain
             // If either you guessed h and it was higher, or you guessed l and it was lower, add 100 points. Otherwise, subtract 75
-            _score += ((_guess == "h") == isGreater) ? 100: -75;
+            _score = ((_guess == "h") == isGreater) ? 100: -75;
+            _totalScore += _score;
 
             _currentCard = _nextCard;
             _nextCard = _deck.DrawCard();
@@ -101,8 +102,9 @@ namespace Hilo.Game
                 return;
             }
             
-            Console.WriteLine($"Your score is: {_score}\n");
-            _isPlaying = (_score > 0);
+            Console.WriteLine((_score > 0) ? $"You just gained {_score} points!\n": $"You just lost {-_score} points...\n");
+            Console.WriteLine($"Your score is: {_totalScore}\n");
+            _isPlaying = (_totalScore > 0);
 
         }
     }
