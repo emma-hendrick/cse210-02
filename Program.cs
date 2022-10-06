@@ -14,6 +14,7 @@ namespace Hilo
         /// <param name="args">The given arguments.</param>
         static int Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Director director = new Director();
             director.StartGame();
             return 0;

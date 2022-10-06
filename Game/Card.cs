@@ -51,7 +51,7 @@ namespace Hilo.Game
             string numberAndSuit = number + suitString;
 
             string[] cardString = new string[]{
-                $"{blackOnWhite}-----------------{resetCol}",
+                $"{blackOnWhite}╭───────────────╮{resetCol}",
                 $"{blackOnWhite}|               |{resetCol}",
                 $"{blackOnWhite}|               |{resetCol}",
                 $"{blackOnWhite}|               |{resetCol}",
@@ -61,7 +61,7 @@ namespace Hilo.Game
                 $"{blackOnWhite}|               |{resetCol}",
                 $"{blackOnWhite}|               |{resetCol}",
                 $"{blackOnWhite}|               |{resetCol}",
-                $"{blackOnWhite}-----------------{resetCol}",
+                $"{blackOnWhite}╰───────────────╯{resetCol}",
                 ""
                 };
 
